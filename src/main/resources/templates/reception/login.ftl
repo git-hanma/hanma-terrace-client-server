@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>点菜宝贝，后台管理系统</title>
+    <title>汗马，后台管理系统</title>
     <meta name="keywords" content="点菜宝贝，后台管理系统">
     <meta name="description" content="点菜宝贝，后台管理系统">
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
