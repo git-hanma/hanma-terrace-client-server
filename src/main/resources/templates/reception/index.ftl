@@ -20,6 +20,10 @@
 
 <body>
     <!-- common-head -->
+
+
+
+
     <div class="common-head clearfix">
         <a class="logo" href="index">
             <img src="/img/logo.png" alt="">
@@ -88,7 +92,7 @@
             <dl>
                 <dt >订单管理 <img class="b" src="/img/jt-right-co.png" alt=""><img class="r" src="/img/jt-bottom.png" alt=""></dt>
                 <dd>
-                    <a href="#/">订单列表 </a>
+                    <a href="#/order/orderList">订单列表 </a>
                     <a href="#/">统计分析 </a>
                 </dd>
             </dl>
