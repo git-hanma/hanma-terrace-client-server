@@ -29,5 +29,5 @@ public interface OrderService {
     *@CreateDate: 2019/7/17 下午 05:10
     */
     @RequestMapping(value = "plat/queryOrderList",method = RequestMethod.GET)
-    List<Order> queryOrderList();
+    List<Order> queryOrderList(@RequestParam("orderNumber") String orderNumber);
 }

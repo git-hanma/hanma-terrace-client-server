@@ -34,19 +34,24 @@ public class OrderController {
     */
     @ResponseBody
     @RequestMapping("orderList")
-    public ModelAndView orderlist(){
+    public ModelAndView orderlist(String orderNumber){
         ModelAndView mav =new ModelAndView("/reception/view/orderList");
-        List<Order> orderList = orderService.queryOrderList();
+        List<Order> orderList = orderService.queryOrderList(orderNumber);
         mav.addObject("order", orderList);
         System.out.println(orderList);
-
         return mav;
     }
+    /**
+    *@Description: OrderController java类作用描述:订单的sku查询
+    *@Param: * @param null
+    *@return: 
+    *@Author: 申笑琰
+    *@CreateDate: 2019/7/18 上午 11:33
+    */
     @ResponseBody
     @RequestMapping("orderSku")
     public ModelAndView orderSku(Long orderid){
-
-        List<Order> orderList = orderService.queryOrderList();
+        List<Order> orderList = orderService.queryOrderList(null);
         if (orderid!=null) {
             for (int i = 0; i < orderList.size(); i++) {
                 for (int j=0;j<orderList.get(i).getOrderSkus().size();i++){

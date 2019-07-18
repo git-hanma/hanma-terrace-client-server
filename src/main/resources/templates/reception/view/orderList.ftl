@@ -176,7 +176,7 @@
                             SKU详情
                         </button>
                         <!--表格-->
-                        <div id="demo${item.orderId!""}" class="collapse in collapsing table-wrapper pl27 " style="width:1000px;">
+                        <div id="demo${item.orderId!""}" class="collapse in collapsing table-wrapper pl27 " style="width:304px;">
                             <iframe id="mainMenuIframeorder" src="/order/orderSku?orderid=${item.orderId!""}"></iframe>
                         </div>
 

@@ -19,8 +19,9 @@ import java.util.List;
 @Component
 public class OrderServiceImpl implements OrderService {
 
+
     @Override
-    public List<Order> queryOrderList() {
+    public List<Order> queryOrderList(String orderNumber) {
         return null;
     }
 }
