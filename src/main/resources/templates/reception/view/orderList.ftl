@@ -6,8 +6,8 @@
     <title>订单列表</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/plugin/jquery/jquery.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../css/frame.css">
     <link rel="stylesheet" href="../css/addClass.css">
     <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
@@ -172,51 +172,12 @@
                     </td>
                     <td>
                         <button type="button" class="btn btn-primary" data-toggle="collapse"
-                                data-parent="selector"
                                 data-target="#demo${item.orderId!""}">
                             SKU详情
                         </button>
-                        <div id="demo${item.orderId!""}" class="collapse collapsing">
-                            <!--表格-->
-                            <div class="table-wrapper pl27 " style="min-width:1000px;">
-                                <table class="table text-center">
-                                    <thead>
-                                    <tr>
-                                        <th class="yt" style="width: 9%;">&nbsp;SKU-ID
-                                            <label for="all" style="width: 40px">&nbsp;&nbsp;&nbsp;</label>
-                                        </th>
-                                        <th style="width: 16%;" class="sort cur">SPU-ID
-                                            <img class="bottom" src="../img/jt-bottom.png" alt="">
-                                            <img class="top" style="display: none" src="../img/jt-right-co.png" alt="">
-                                        </th>
-                                        <th class="sort cur" style="width:15%">商品ID
-                                            <img class="bottom" src="../img/jt-bottom.png" alt="">
-                                            <img class="top" style="display: none" src="../img/jt-right-co.png" alt="">
-                                        </th>
-                                        <th class="sort cur" style="width: 15%;">同类价
-                                            <img class="bottom" src="../img/jt-bottom.png" alt="">
-                                            <img class="top" style="display: none" src="../img/jt-right-co.png" alt="">
-                                        </th>
-                                        <th class="sort cur" style="width: 10%;">数量
-                                            <img class="bottom" src="../img/jt-bottom.png" alt="">
-                                            <img class="top" style="display: none" src="../img/jt-right-co.png" alt="">
-                                        </th>
-                                        <th class="no-nowrap sort cur" style="width: 15%;">创建时间
-                                            <img class="bottom" src="../img/jt-bottom.png" alt="">
-                                            <img class="top" style="display: none" src="../img/jt-right-co.png" alt="">
-                                        </th>
-                                        <th class="no-nowrap sort cur" style="width: 15%;">修改时间
-                                            <img class="bottom" src="../img/jt-bottom.png" alt="">
-                                            <img class="top" style="display: none" src="../img/jt-right-co.png" alt="">
-                                        </th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <iframe id="mainMenuIframeorder" scrolling="no" src="/order/orderSku?id=${item.orderId!""}"></iframe>
-
-                                    </tbody>
-                                </table>
-                            </div>
+                        <!--表格-->
+                        <div id="demo${item.orderId!""}" class="collapse in collapsing table-wrapper pl27 " style="width:1000px;">
+                            <iframe id="mainMenuIframeorder" src="/order/orderSku?orderid=${item.orderId!""}"></iframe>
                         </div>
 
                     </td>

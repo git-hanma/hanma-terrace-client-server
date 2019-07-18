@@ -44,17 +44,21 @@ public class OrderController {
     }
     @ResponseBody
     @RequestMapping("orderSku")
-    public ModelAndView orderSku(Integer id){
-        ModelAndView mav =new ModelAndView("/reception/view/orderSku");
+    public ModelAndView orderSku(Long orderid){
+
         List<Order> orderList = orderService.queryOrderList();
-        if (id!=null) {
+        if (orderid!=null) {
             for (int i = 0; i < orderList.size(); i++) {
-                mav.addObject("sku", orderList.get(i).getOrderSkus());
-                System.out.println(orderList.get(i).getOrderSkus());
+                for (int j=0;j<orderList.get(i).getOrderSkus().size();i++){
+                    if (orderList.get(i).getOrderSkus().get(j).getOrderId().equals(orderid)){
+                        ModelAndView mav =new ModelAndView("/reception/view/orderSku");
+                        mav.addObject("skuOreder", orderList.get(i).getOrderSkus());
+                        System.out.println(orderList.get(i).getOrderSkus());
+                        return mav;
+                    }
+                }
             }
         }
-        System.out.println(orderList);
-
-        return mav;
+        return null;
     }
 }
