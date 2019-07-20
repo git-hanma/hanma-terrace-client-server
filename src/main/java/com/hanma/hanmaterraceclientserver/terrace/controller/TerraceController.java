@@ -1,8 +1,11 @@
 package com.hanma.hanmaterraceclientserver.terrace.controller;
 
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("terrace")
@@ -31,6 +34,5 @@ public class TerraceController {
     public String toUrl(@PathVariable("url") String url){
         return "/reception/view/"+url;
     }
-
 
 }
