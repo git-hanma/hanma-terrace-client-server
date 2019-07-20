@@ -1,5 +1,8 @@
 package com.hanma.hanmaterraceclientserver.terrace.service;
 
+import com.hanma.hanmaterraceclientserver.terrace.domain.ResultMsg;
+import com.hanma.hanmaterraceclientserver.terrace.domain.TerraceVO;
+import org.springframework.cloud.openfeign.FeignClient;
 import com.hanma.hanmaterraceclientserver.terrace.domain.Terrace;
 import com.hanma.hanmaterraceclientserver.terrace.service.impl.TerraceServiceImpl;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -59,4 +62,13 @@ public interface TerraceService {
 
     @RequestMapping(value = "/terrace/updateTerrace")
     String updateTerrace(@RequestBody Terrace terrace);
+
+
+    @RequestMapping(value = "TerraceController/userListYh",method = RequestMethod.GET)
+    List<TerraceVO> userListYh();
+    //员工查询
+    @RequestMapping(value = "TerraceController/userYg",method = RequestMethod.GET)
+    List<TerraceVO> userYg();
+    @RequestMapping(value = "TerraceController/LogonBy",method = RequestMethod.GET)
+    ResultMsg LogonBy(@RequestParam("staffPhone") String staffPhone, @RequestParam("staffPass") String staffPass);
 }

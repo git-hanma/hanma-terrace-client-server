@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>点菜宝贝，后台管理系统</title>
+    <title>汗马，后台管理系统</title>
     <meta name="keywords" content="点菜宝贝，后台管理系统">
     <meta name="description" content="点菜宝贝，后台管理系统">
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
@@ -17,8 +17,9 @@
     <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+<script type="text/javascript" src="/js/jquery-1.11.0.min.js"></script>
 <body>
-    <a href="login.ftl"><img class="login-logo" src="/img/logo.png"></a>
+    <a href="/terrace/toLogin"><img class="login-logo" src="/img/demo6.png"></a>
     <a class="login-change" href="login.ftl">PC客户端 <span>&nbsp; | &nbsp;</span> 手机客户端</a>
     <div class="login-title default"></div>
    <div class="login-name">管理员登录</div>
@@ -27,49 +28,43 @@
         <div class="login-input">
 
             <label for="">账&nbsp;&nbsp;&nbsp;号：</label>
-            <input class="ob-form login-form-user" type="text">
+            <input class="ob-form login-form-user" type="text" name="staffPhone">
         </div>
         <div class="login-input">
             <label for="">密&nbsp;&nbsp;&nbsp;码：</label>
-            <input class="ob-form login-form-user" type="password">
+            <input class="ob-form login-form-user" type="password" name="staffPass">
         </div>
-         <div class="login-input">
-            <label for="">手&nbsp;&nbsp;&nbsp;机：</label>
-            <input class="ob-form login-form-vc" type="text">
-
-            <div class="ob-form login-vc code-input btn-s" >发送验证码</div>
-        </div>
-        <div class="login-input">
-            <label for="">验证码：</label>
-            <input class="ob-form login-form-tx" type="text" placeholder="手机码">
-            <input class="ob-form login-form-tx" type="text" placeholder="图形码">
-            <input value="xa99" class="ob-form login-vc yzm" type="text" disabled>
-        </div>
-        <div class="login-input">
-            <span class="errorInfo">账号或密码不正确</span>
-        </div>
-        <button class="btn order-food-menu-btn login-btn " >登录</button>
-
-
+        <#--<button class="btn order-food-menu-btn login-btn">登录</button>-->
+        <input class="btn order-food-menu-btn login-btn" type="button" onclick="loginStaff()" value="登录"/>
     </div>
-    <div class="login-footer clearfix">Copyright © 2017 点菜宝贝 Diancai Baobei.com  All Rights Reserved. <img class="ybs" style="cursor: pointer;" src="/img/login_jj.jpg" width="57" height="42" alt=""></div>
-</body>
-<script src="/plugin/jquery/jquery.js"></script>
 <script>
-    $('.login-register').click(function () {
-        var _this = $(this);
-        $(this).addClass('active');
-        setTimeout(function () {
-            _this.removeClass('active');
-        },100);
-    });
-    $(".login-btn").click(function(event) {
-        /* Act on the event */
-        location.href="index.ftl";
-    });
-     $(".ybs").click(function(event) {
-        /* Act on the event */
-        location.href="login.ftl";
-    });
+    function loginStaff() {
+        var phone=$("input[name='staffPhone']").val();
+        var pass=$("input[name='staffPass']").val();
+         if (phone!=null) {
+             $.ajax({
+                 type: "GET",
+                 async: false,
+                 url: "/terr/LogonBy",
+                 data: {staffPhone: phone, staffPass: pass},
+                 datatType: "json",
+                 success: function (data) {
+                     if (data.code == 2) {
+                         //跳转到管理员页面
+                         location.href = "/terrace/toIndex";
+                     } else if (data.code == 1) {
+                         //跳转到登陆页面
+                         location.href = "/terr/toLogin";
+                     }
+                 }
+             })
+         }else{
+                 alert("用户不能为空")
+         }
+     }
+    
+    
+
 </script>
+</body>
 </html>

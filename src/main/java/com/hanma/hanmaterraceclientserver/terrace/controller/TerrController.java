@@ -11,9 +11,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by p on 2019/7/15.
- */
+
+import com.hanma.hanmaterraceclientserver.terrace.domain.ResultMsg;
+import com.hanma.hanmaterraceclientserver.terrace.domain.TerraceVO;
+import com.hanma.hanmaterraceclientserver.terrace.service.TerraceService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
+
+
 @Controller
 @RequestMapping("terr")
 public class TerrController {
@@ -106,4 +117,36 @@ public class TerrController {
     public String queryStuName(String stuName){
         return terraceService.queryStuName(stuName);
     }
+
+    /**
+     * 用户查询
+     */
+    @RequestMapping("userListYh")
+    @ResponseBody
+    public ModelAndView userListYh(){
+        ModelAndView mav = new ModelAndView("/reception/view/userList");
+        List<TerraceVO> userList = terraceService.userListYh();
+        mav.addObject("user",userList);
+        return mav;
+    }
+
+    //员工的基本信息
+    @RequestMapping("userYg")
+    @ResponseBody
+    public ModelAndView userYg(){
+        ModelAndView mav = new ModelAndView("/reception/view/userListYg");
+        List<TerraceVO> userList = terraceService.userYg();
+        mav.addObject("user",userList);
+        return mav;
+    }
+
+    //员工登陆平台
+    @RequestMapping("LogonBy")
+    @ResponseBody
+    public ResultMsg LogonBy(HttpServletRequest request, String staffPhone, String staffPass){
+        ResultMsg resultMsg = terraceService.LogonBy(staffPhone,staffPass);
+        return resultMsg;
+    }
+
+
 }

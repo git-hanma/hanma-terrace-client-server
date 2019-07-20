@@ -1,5 +1,9 @@
 package com.hanma.hanmaterraceclientserver.terrace.service.impl;
 
+import com.hanma.hanmaterraceclientserver.terrace.domain.ResultMsg;
+import com.hanma.hanmaterraceclientserver.terrace.domain.TerraceVO;
+import com.hanma.hanmaterraceclientserver.terrace.service.TerraceService;
+import org.springframework.stereotype.Component;
 import com.hanma.hanmaterraceclientserver.terrace.domain.Terrace;
 import com.hanma.hanmaterraceclientserver.terrace.service.TerraceService;
 import org.springframework.stereotype.Component;
@@ -34,7 +38,6 @@ public class TerraceServiceImpl implements TerraceService {
     public Terrace getQueryId(Long terraceId) {
         return null;
     }
-
     @Override
     public void deleteFun(Long merchantId) {
 
@@ -44,8 +47,6 @@ public class TerraceServiceImpl implements TerraceService {
     public String updateTerrace(Terrace terrace) {
         return null;
     }
-
-
     /**
      * 查询
      * @return
@@ -64,4 +65,28 @@ public class TerraceServiceImpl implements TerraceService {
     public String addTerraceSave(Terrace terrace) {
         return null;
     }
+
+
+
+
+
+    public List<TerraceVO> userYg() {
+        return null;
+    }
+
+
+    @Override
+    public List<TerraceVO> userListYh() {
+        return null;
+    }
+
+    @Override
+    public ResultMsg LogonBy(String staffPhone, String staffPass) {
+        return null;
+    }
+
+
+
+
+
 }
