@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>用户列表</title>
+    <title>员工列表</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/frame.css">
@@ -21,20 +21,8 @@
     </style>
 </head>
 <body>
-    <div class="frame-header"><span class="page-reload cur">用户列表</span></div>
+    <div class="frame-header"><span class="page-reload cur">员工列表</span></div>
     <!--操作栏-->
-    <div class="operates clearfix" style="overflow: auto;white-space: nowrap; font-size: 0;">
-        <div class="pull-left left-inp defualt">
-            <button class="btn delete pramary">搜索</button>
-            <button class="btn delete pramary">筛选</button>
-        </div>
-        <div class="right-btns" style="font-size: 0">
-            <button class="btn delete pramary" onclick="insert()">增加</button>
-            <button class="btn delete pramary">编辑</button>
-            <button class="btn delete pramary">设密</button>
-            <button class="btn delete pramary">删除</button>
-        </div>
-    </div>
     <!--表格-->
     <div class="table-wrapper pl27 " style="min-width:1000px;">
         <table class="table text-center">
