@@ -4,6 +4,7 @@ package com.hanma.hanmaterraceclientserver.order.controller;/**
 
 import com.google.gson.Gson;
 import com.hanma.hanmaterraceclientserver.order.domain.Order;
+import com.hanma.hanmaterraceclientserver.order.domain.OrderSku;
 import com.hanma.hanmaterraceclientserver.order.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -51,7 +52,7 @@ public class OrderController {
     @ResponseBody
     @RequestMapping("orderSku")
     public ModelAndView orderSku(Long orderid){
-        List<Order> orderList = orderService.queryOrderList(null);
+        /*List<Order> orderList = orderService.queryOrderList(null);
         if (orderid!=null) {
             for (int i = 0; i < orderList.size(); i++) {
                 for (int j=0;j<orderList.get(i).getOrderSkus().size();i++){
@@ -63,7 +64,10 @@ public class OrderController {
                     }
                 }
             }
-        }
-        return null;
+        }*/
+        ModelAndView mav =new ModelAndView("/reception/view/orderSku");
+        List<OrderSku> orderSkus = orderService.ORDER_SKUS(orderid);
+        mav.addObject("skuOreder", orderSkus);
+        return mav;
     }
 }
