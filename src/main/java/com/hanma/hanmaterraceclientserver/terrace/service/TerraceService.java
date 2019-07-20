@@ -2,6 +2,7 @@ package com.hanma.hanmaterraceclientserver.terrace.service;
 
 import com.hanma.hanmaterraceclientserver.terrace.domain.ResultMsg;
 import com.hanma.hanmaterraceclientserver.terrace.domain.TerraceVO;
+import com.hanma.hanmaterraceclientserver.terrace.service.impl.TerraceServiceImpl;
 import org.springframework.cloud.openfeign.FeignClient;
 import com.hanma.hanmaterraceclientserver.terrace.domain.Terrace;
 import com.hanma.hanmaterraceclientserver.terrace.service.impl.TerraceServiceImpl;
