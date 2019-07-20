@@ -2,11 +2,10 @@ package com.hanma.hanmaterraceclientserver.terrace.controller;
 
 import com.hanma.hanmaterraceclientserver.terrace.domain.ResultMsg;
 import com.hanma.hanmaterraceclientserver.terrace.domain.TerraceVO;
-import com.hanma.hanmaterraceclientserver.terrace.server.TerraceServer;
+import com.hanma.hanmaterraceclientserver.terrace.service.TerraceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -22,7 +21,7 @@ import java.util.List;
 @RequestMapping("terr")
 public class TerrController {
     @Autowired
-    private TerraceServer terraceServer;
+    private TerraceService terraceService;
     /**
      * 用户查询
      */
@@ -30,7 +29,7 @@ public class TerrController {
     @ResponseBody
     public ModelAndView userListYh(){
         ModelAndView mav = new ModelAndView("/reception/view/userList");
-        List<TerraceVO> userList = terraceServer.userListYh();
+        List<TerraceVO> userList = terraceService.userListYh();
         mav.addObject("user",userList);
         return mav;
     }
@@ -40,7 +39,7 @@ public class TerrController {
     @ResponseBody
     public ModelAndView userYg(){
         ModelAndView mav = new ModelAndView("/reception/view/userListYg");
-        List<TerraceVO> userList = terraceServer.userYg();
+        List<TerraceVO> userList = terraceService.userYg();
         mav.addObject("user",userList);
         return mav;
     }
@@ -49,7 +48,7 @@ public class TerrController {
     @RequestMapping("LogonBy")
     @ResponseBody
     public ResultMsg LogonBy(HttpServletRequest request, String staffPhone, String staffPass){
-        ResultMsg resultMsg = terraceServer.LogonBy(staffPhone,staffPass);
+        ResultMsg resultMsg = terraceService.LogonBy(staffPhone,staffPass);
         return resultMsg;
     }
 

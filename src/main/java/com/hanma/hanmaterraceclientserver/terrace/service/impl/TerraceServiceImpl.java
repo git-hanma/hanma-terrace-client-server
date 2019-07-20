@@ -1,10 +1,9 @@
-package com.hanma.hanmaterraceclientserver.terrace.server.impl;
+package com.hanma.hanmaterraceclientserver.terrace.service.impl;
 
 import com.hanma.hanmaterraceclientserver.terrace.domain.ResultMsg;
 import com.hanma.hanmaterraceclientserver.terrace.domain.TerraceVO;
-import com.hanma.hanmaterraceclientserver.terrace.server.TerraceServer;
+import com.hanma.hanmaterraceclientserver.terrace.service.TerraceService;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -12,7 +11,7 @@ import java.util.List;
  * Created by 小妞 on 2019/7/16.
  */
 @Component
-public class TerraceServerImpl implements TerraceServer {
+public class TerraceServiceImpl implements TerraceService {
     @Override
     public List<TerraceVO> userListYh() {
         return null;
