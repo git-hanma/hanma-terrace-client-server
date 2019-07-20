@@ -74,7 +74,7 @@
             <dl>
                 <dt style="border-top: none;">用户管理 <img class="b" src="/img/jt-right-co.png" alt=""><img class="r" src="/img/jt-bottom.png" alt=""></dt>
                 <dd>
-                    <a href="#/terrace/userList">用户列表  <i class="lo">12</i> </a>
+                    <a href="#/terr/userListYh">用户列表</a>
                     <a href="#/terrace/communication">通讯信息 </a>
                     <a href="#/terrace/loginInfo">登录信息 </a>
                 </dd>
@@ -115,7 +115,7 @@
             <dl>
                 <dt>安全管理 <img class="b" src="/img/jt-right-co.png" alt=""><img class="r" src="/img/jt-bottom.png" alt=""></dt>
                 <dd>
-                    <a href="#/">基本信息 </a>
+                    <a href="#/terr/userYg">基本信息 </a>
                     <a href="#/">密码设置 </a>
                 </dd>
             </dl>
