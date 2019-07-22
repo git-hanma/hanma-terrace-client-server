@@ -5,10 +5,6 @@ import com.hanma.hanmaterraceclientserver.terrace.domain.TerraceVO;
 import com.hanma.hanmaterraceclientserver.terrace.service.TerraceService;
 import org.springframework.stereotype.Component;
 import com.hanma.hanmaterraceclientserver.terrace.domain.Terrace;
-import com.hanma.hanmaterraceclientserver.terrace.service.TerraceService;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 /**
@@ -42,6 +38,13 @@ public class TerraceServiceImpl implements TerraceService {
     public void deleteFun(Long merchantId) {
 
     }
+
+    /**
+     * 修改
+     * name 王辉
+     * @param terrace
+     * @return
+     */
 
     @Override
     public String updateTerrace(Terrace terrace) {

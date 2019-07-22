@@ -14,16 +14,10 @@ import java.util.Map;
 
 import com.hanma.hanmaterraceclientserver.terrace.domain.ResultMsg;
 import com.hanma.hanmaterraceclientserver.terrace.domain.TerraceVO;
-import com.hanma.hanmaterraceclientserver.terrace.service.TerraceService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
-
 
 @Controller
 @RequestMapping("terr")
@@ -37,6 +31,7 @@ public class TerrController {
     /**
      *
      * 调用后台查询方法
+     * name 王辉
      * @return
      */
     @RequestMapping("terraceQueryList")
@@ -147,6 +142,4 @@ public class TerrController {
         ResultMsg resultMsg = terraceService.LogonBy(staffPhone,staffPass);
         return resultMsg;
     }
-
-
 }

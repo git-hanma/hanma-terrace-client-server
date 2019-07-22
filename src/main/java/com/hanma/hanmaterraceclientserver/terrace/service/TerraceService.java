@@ -5,9 +5,6 @@ import com.hanma.hanmaterraceclientserver.terrace.domain.TerraceVO;
 import com.hanma.hanmaterraceclientserver.terrace.service.impl.TerraceServiceImpl;
 import org.springframework.cloud.openfeign.FeignClient;
 import com.hanma.hanmaterraceclientserver.terrace.domain.Terrace;
-import com.hanma.hanmaterraceclientserver.terrace.service.impl.TerraceServiceImpl;
-import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,7 +15,7 @@ import java.util.List;
 /**
  * Created by p on 2019/7/15.
  */
-@FeignClient(value = "HANMA-TERRACE-SERVER",fallback = TerraceServiceImpl.class)
+@FeignClient(value = "HANMA-TERRACE-SERVER-HUI",fallback = TerraceServiceImpl.class)
 public interface TerraceService {
 
     /**
@@ -30,6 +27,7 @@ public interface TerraceService {
 
     /**
      * 调用商户注入接口
+     * name 王辉
      * @param terrace
      * @return
      */
@@ -38,6 +36,7 @@ public interface TerraceService {
 
     /**
      * 熔断器 进入错误方法
+     * name 王辉
      * @param stuName
      * @return
      */
@@ -47,20 +46,28 @@ public interface TerraceService {
 
     /**
      * 根据Id回显数据
+     * name 王辉
      * @param
      * @return
      */
     @RequestMapping(value = "/terrace/getQueryId",method = RequestMethod.GET)
-    Terrace getQueryId(@RequestParam(name = "id") Long terraceId);
+    Terrace getQueryId(@RequestParam(name = "merchantId") Long terraceId);
 
     /**
      *状态删除
+     * name 王辉
      * @param merchantId
      */
     @RequestMapping(value = "/terrace/deleteFun")
     void deleteFun(@RequestParam(name = "merchantId") Long merchantId);
 
 
+    /**
+     * 修改
+     * name 王辉
+     * @param terrace
+     * @return
+     */
     @RequestMapping(value = "/terrace/updateTerrace")
     String updateTerrace(@RequestBody Terrace terrace);
 
