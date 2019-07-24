@@ -3,6 +3,7 @@ package com.hanma.hanmaterraceclientserver.order.service;/**
  */
 
 import com.hanma.hanmaterraceclientserver.order.domain.Order;
+import com.hanma.hanmaterraceclientserver.order.domain.OrderSku;
 import com.hanma.hanmaterraceclientserver.order.service.impl.OrderServiceImpl;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Service;
@@ -30,4 +31,13 @@ public interface OrderService {
     */
     @RequestMapping(value = "plat/queryOrderList",method = RequestMethod.GET)
     List<Order> queryOrderList(@RequestParam("orderNumber") String orderNumber);
+    /**
+    *@Description: OrderService java类作用描述:根据主订单ID查询sku表信息
+    *@Param: * @param null
+    *@return: 
+    *@Author: 申笑琰
+    *@CreateDate: 2019/7/20 上午 10:17
+    */
+    @RequestMapping(value = "order/orderSku",method = RequestMethod.GET)
+    List<OrderSku> ORDER_SKUS(@RequestParam("orderid") Long orderid);
 }

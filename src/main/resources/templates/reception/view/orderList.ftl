@@ -108,15 +108,14 @@
                 <img class="bottom" src="../img/jt-bottom.png" alt="">
                 <img class="top" style="display: none" src="../img/jt-right-co.png" alt="">
             </th>
-            <th class="no-nowrap sort cur" style="width: 10%;">SKU数据
-                <img class="bottom" src="../img/jt-bottom.png" alt="">
-                <img class="top" style="display: none" src="../img/jt-right-co.png" alt="">
-            </th>
             <th class="no-nowrap sort cur" style="width: 10%;">修改时间
                 <img class="bottom" src="../img/jt-bottom.png" alt="">
                 <img class="top" style="display: none" src="../img/jt-right-co.png" alt="">
             </th>
-
+            <th class="no-nowrap sort cur" style="width: 10%;">SKU数据
+                <img class="bottom" src="../img/jt-bottom.png" alt="">
+                <img class="top" style="display: none" src="../img/jt-right-co.png" alt="">
+            </th>
         </tr>
         </thead>
         <tbody>
@@ -135,13 +134,13 @@
                         <p>${item.merchantId!""}</p>
                     </td>
                     <td>
-                        <p>${item.orderCost!""}<i class="hui"></i></p>
+                        <p>${item.orderCost!""}<i class="hui">元</i></p>
                     </td>
                     <td>
-                        <p>${item.orderCountprice!""}</p>
+                        <p>${item.orderCountprice!""}<i class="hui">元</i></p>
                     </td>
                     <td>
-                        <p>${item.orderActual!""}</p>
+                        <p>${item.orderActual!""}<i class="hui">元</i></p>
                     </td>
                     <td>
                         <p>${item.orderPay!""}<i class="hui"></i></p>
@@ -153,7 +152,23 @@
                         <p>${item.addressShipping!""}</p>
                     </td>
                     <td>
-                        <p>${item.orderStatus!""}</p>
+                        <p>
+                            <#if item.orderStatus==1000>
+                                订单生成
+                                <#elseif item.orderStatus==1100>
+                                订单支付
+                                <#elseif item.orderStatus==1200>
+                                订单审核
+                                <#elseif item.orderStatus==1300>
+                                订单准备
+                                <#elseif item.orderStatus==1400>
+                                订单配送
+                                <#elseif item.orderStatus==1500>
+                                订单完成
+                                <#else >
+                                订单失效
+                            </#if>
+                        </p>
                     </td>
                     <td>
                         <p>${item.orderNumber!""}</p>
@@ -171,19 +186,35 @@
                         <p>${item.orderCreateTime?string("yyyy-MM-dd HH:mm:ss")}</p>
                     </td>
                     <td>
+                        <p>${(item.orderPayentTime?string("yyyy-MM-dd HH:mm:ss"))!""}</p>
+                    </td>
+                    <td>
                         <button type="button" class="btn btn-primary" data-toggle="collapse"
                                 data-target="#demo${item.orderId!""}">
                             SKU详情
                         </button>
                         <!--表格-->
-                        <div id="demo${item.orderId!""}" class="collapse in collapsing table-wrapper pl27 " style="width:304px;">
-                            <iframe id="mainMenuIframeorder" src="/order/orderSku?orderid=${item.orderId!""}"></iframe>
+
+                        <div id="demo${item.orderId!''}" class="collapse in collapsing table-wrapper pl27 " style="width:900px;">
+                            <#--<iframe id="mainMenuIframeorder" src="?orderid=${item.orderId!""}"></iframe>-->
+                            <script>
+                                mainMenuIframeorder(${item.orderId!""});
+                                function mainMenuIframeorder(val){
+                                    $.ajax({
+                                        url:"/order/orderSku",
+                                        data:{"orderid":val},
+                                        dataType:"html",
+                                        type:"get",
+                                        success:function (data) {
+                                            $("#demo${item.orderId!''}").html(data);
+                                        }
+                                    })
+                                }
+                            </script>
                         </div>
 
                     </td>
-                    <td>
-                        <p>${(item.orderPayentTime?string("yyyy-MM-dd HH:mm:ss"))!""}</p>
-                    </td>
+
                 </tr>
             </#list>
         </tbody>
@@ -221,4 +252,7 @@
 </body>
 <script src="../plugin/jquery/jquery.js"></script>
 <script src="../js/frame-base.js"></script>
+<script>
+
+</script>
 </html>

@@ -82,7 +82,7 @@
             <dl>
                 <dt >商户管理 <img class="b" src="/img/jt-right-co.png" alt=""><img class="r" src="/img/jt-bottom.png" alt=""></dt>
                 <dd>
-                    <a href="#/terrace/shopList">商户列表 </a>
+                    <a href="#/terr/terraceQueryList">商户列表 </a>
                     <a href="#/terrace/loginUser">登录账号 </a>
                     <a href="#/terrace/loginCode">登录记录 </a>
                     <a href="#/terrace/aptitudeInfo">资质信息 </a>

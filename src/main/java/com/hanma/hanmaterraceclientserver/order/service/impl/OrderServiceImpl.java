@@ -3,6 +3,7 @@ package com.hanma.hanmaterraceclientserver.order.service.impl;/**
  */
 
 import com.hanma.hanmaterraceclientserver.order.domain.Order;
+import com.hanma.hanmaterraceclientserver.order.domain.OrderSku;
 import com.hanma.hanmaterraceclientserver.order.service.OrderService;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,11 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<Order> queryOrderList(String orderNumber) {
+        return null;
+    }
+
+    @Override
+    public List<OrderSku> ORDER_SKUS(Long orderid) {
         return null;
     }
 }

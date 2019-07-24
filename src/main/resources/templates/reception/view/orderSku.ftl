@@ -4,22 +4,23 @@
 <table class="table text-center">
     <thead>
     <tr>
-        <th class="yt" style="width: 3%;">&nbsp;SKU-ID
-            <label for="all" style="width: 40px">&nbsp;</label>
-        </th>
-        <th style="width: 3%;" class="sort cur">SPU-ID
+        <th style="width: 8%;" class="sort cur">SKU-ID
             <img class="bottom" src="../img/jt-bottom.png" alt="">
             <img class="top" style="display: none" src="../img/jt-right-co.png" alt="">
         </th>
-        <th class="sort cur" style="width:3%">商品ID
+        <th style="width: 7%;" class="sort cur">SPU-ID
             <img class="bottom" src="../img/jt-bottom.png" alt="">
             <img class="top" style="display: none" src="../img/jt-right-co.png" alt="">
         </th>
-        <th class="sort cur" style="width: 5%;">同类价
+        <th class="sort cur" style="width:7%">商品ID
             <img class="bottom" src="../img/jt-bottom.png" alt="">
             <img class="top" style="display: none" src="../img/jt-right-co.png" alt="">
         </th>
-        <th class="sort cur" style="width: 5%;">数量
+        <th class="sort cur" style="width: 7%;">同类价
+            <img class="bottom" src="../img/jt-bottom.png" alt="">
+            <img class="top" style="display: none" src="../img/jt-right-co.png" alt="">
+        </th>
+        <th class="sort cur" style="width: 8%;">数量
             <img class="bottom" src="../img/jt-bottom.png" alt="">
             <img class="top" style="display: none" src="../img/jt-right-co.png" alt="">
         </th>
@@ -45,7 +46,7 @@
             <p>${itme.itemId!""}</p>
         </td>
         <td>
-            <p>${itme.skuCountprice!""}</p>
+            <p>${itme.skuCountprice!""}<i class="hui">元</i></p>
         </td>
         <td>
             <p>${itme.skuNum!""}</p>
@@ -64,8 +65,9 @@
 </body>
 </html>
 
+<#--
 <script>
     if(window.parent != window){
         parent.document.getElementById("mainMenuIframeorder").style.height = (document.body.scrollHeight+30)+"px";
     }
-</script>
+</script>-->
